@@ -1,0 +1,40 @@
+# Environment Variables & Secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Databases & Dynamic Case Data
+data/justicehelper.db
+data/cases/*.json
+!data/cases/.gitkeep
+*.sqlite3
+*.db
+
+# Python Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs & Debug Output
+*.log
+logs/
+
+# OS & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary & Scratch Files
+scratch/

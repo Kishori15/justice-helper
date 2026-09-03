@@ -1,0 +1,11 @@
+Subject: {{ draft_email.subject }}
+
+To: Grievance Officer / Customer Support, {{ order_info.platform }}
+
+Dear Sir/Madam,
+
+{{ draft_email.body }}
+
+---
+Case Reference ID: {{ case_id }}
+Generated via JusticeHelper (Informational Reference Draft)

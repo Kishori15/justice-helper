@@ -1,0 +1,34 @@
+BEFORE THE NATIONAL CONSUMER HELPLINE / CONSUMER DISPUTES REDRESSAL COMMISSION
+
+IN THE MATTER OF:
+Complainant:
+{{ draft_nch_complaint.complainant_details }}
+
+VERSUS
+
+Opposite Party:
+{{ draft_nch_complaint.opposite_party_details }}
+
+JURISDICTION:
+{{ draft_nch_complaint.jurisdiction_note }}
+
+1. STATEMENT OF FACTS:
+{{ draft_nch_complaint.facts }}
+
+2. GROUNDS OF COMPLAINT & LEGAL BASIS:
+{{ draft_nch_complaint.grounds }}
+
+3. RELIEF SOUGHT:
+{{ draft_nch_complaint.relief_sought }}
+
+4. LIST OF ENCLOSURES / EVIDENCE:
+{% for enc in draft_nch_complaint.enclosures %}
+- {{ enc }}
+{% endfor %}
+
+5. VERIFICATION:
+{{ draft_nch_complaint.verification_clause }}
+
+---
+DISCLAIMER:
+{{ disclaimer }}

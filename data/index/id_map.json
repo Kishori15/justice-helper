@@ -1,0 +1,294 @@
+{
+  "index_to_id": [
+    "cpa2019_sec2_7",
+    "cpa2019_sec2_9",
+    "cpa2019_sec2_11",
+    "cpa2019_sec2_47",
+    "cpa2019_sec35",
+    "cpa2019_sec39",
+    "ecomm2020_rule4_1",
+    "ecomm2020_rule4_2",
+    "ecomm2020_rule4_4",
+    "ecomm2020_rule5_3",
+    "ecomm2020_rule6_2",
+    "ecomm2020_rule7",
+    "nch_process_filing",
+    "nch_evidence_docs",
+    "nch_tat_escalation",
+    "nch_faq_refund_delay"
+  ],
+  "entries": {
+    "cpa2019_sec2_7": {
+      "id": "cpa2019_sec2_7",
+      "source_type": "act",
+      "source_name": "Consumer Protection Act, 2019",
+      "title": "Section 2(7) — Definition of Consumer",
+      "section_number": "Sec 2(7)",
+      "parent_id": null,
+      "topics": [
+        "consumer_definition",
+        "rights"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-act-2019",
+      "text": "\"consumer\" means any person who buys any goods for a consideration which has been paid or promised or partly paid and partly promised, or under any system of deferred payment, and includes any user of such goods other than the person who buys such goods for consideration when such use is made with the approval of such person, but does not include a person who obtains such goods for resale or for any commercial purpose; and the explanation clarifies that the expressions \"buys any goods\" and \"hires or avails any services\" includes offline or online transactions through electronic means or by teleshopping or direct selling or multi-level marketing.",
+      "last_verified": "2026-08-01"
+    },
+    "cpa2019_sec2_9": {
+      "id": "cpa2019_sec2_9",
+      "source_type": "act",
+      "source_name": "Consumer Protection Act, 2019",
+      "title": "Section 2(9) — Consumer Rights",
+      "section_number": "Sec 2(9)",
+      "parent_id": null,
+      "topics": [
+        "rights",
+        "redressal_mechanism"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-act-2019",
+      "text": "\"consumer rights\" includes the right to be protected against the marketing of goods, products or services which are hazardous to life and property; the right to be informed about the quality, quantity, potency, purity, standard and price of goods, products or services; the right to be assured of access to a variety of goods, products or services at competitive prices; the right to be heard and to be assured that consumer's interests will receive due consideration in appropriate fora; the right to seek redressal against unfair trade practice or restrictive trade practices or unscrupulous exploitation of consumers; and the right to consumer awareness.",
+      "last_verified": "2026-08-01"
+    },
+    "cpa2019_sec2_11": {
+      "id": "cpa2019_sec2_11",
+      "source_type": "act",
+      "source_name": "Consumer Protection Act, 2019",
+      "title": "Section 2(11) — Deficiency in Service",
+      "section_number": "Sec 2(11)",
+      "parent_id": null,
+      "topics": [
+        "deficiency_in_service",
+        "refund",
+        "complaint_timeline"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-act-2019",
+      "text": "\"deficiency\" means any fault, imperfection, shortcoming or inadequacy in the quality, nature and manner of performance which is required to be maintained by or under any law for the time being in force or has been undertaken to be performed by a person in pursuance of a contract or otherwise in relation to any service and includes any act of negligence or omission or commission by such person which causes loss or injury to the consumer; and deliberate withholding of relevant information by such person to the consumer.",
+      "last_verified": "2026-08-01"
+    },
+    "cpa2019_sec2_47": {
+      "id": "cpa2019_sec2_47",
+      "source_type": "act",
+      "source_name": "Consumer Protection Act, 2019",
+      "title": "Section 2(47) — Unfair Trade Practice",
+      "section_number": "Sec 2(47)",
+      "parent_id": null,
+      "topics": [
+        "unfair_trade_practice",
+        "refund",
+        "return_cancellation_policy"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-act-2019",
+      "text": "\"unfair trade practice\" means a trade practice which, for the purpose of promoting the sale, use or supply of any goods or for the provision of any service, adopts any unfair method or unfair or deceptive practice including making any statement, whether orally or in writing or by visible representation, falsely representing that the goods are of a particular standard, quality, quantity, grade, composition, style or model; or refusing, after selling goods or rendering services, to take back or withdraw defective goods or to withdraw or discontinue deficient services and to refund the consideration taken thereof within the period stipulated in the bill or cash memorandum or within a period of thirty days if no period is stipulated.",
+      "last_verified": "2026-08-01"
+    },
+    "cpa2019_sec35": {
+      "id": "cpa2019_sec35",
+      "source_type": "act",
+      "source_name": "Consumer Protection Act, 2019",
+      "title": "Section 35 — Manner in which complaint shall be made",
+      "section_number": "Sec 35",
+      "parent_id": null,
+      "topics": [
+        "redressal_mechanism",
+        "jurisdiction_filing",
+        "evidence_documentation"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-act-2019",
+      "text": "A complaint, in relation to any goods sold or delivered or agreed to be sold or delivered or any service provided or agreed to be provided, may be filed with a District Commission by the consumer to whom such goods are sold or delivered or agreed to be sold or delivered or such service is provided or agreed to be provided. The complaint may be filed electronically (e-Daakhil) in such manner as may be prescribed, accompanied with such fee and in such manner as specified.",
+      "last_verified": "2026-08-01"
+    },
+    "cpa2019_sec39": {
+      "id": "cpa2019_sec39",
+      "source_type": "act",
+      "source_name": "Consumer Protection Act, 2019",
+      "title": "Section 39 — Findings of District Commission and Relief",
+      "section_number": "Sec 39",
+      "parent_id": null,
+      "topics": [
+        "redressal_mechanism",
+        "refund",
+        "deficiency_in_service"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-act-2019",
+      "text": "Where the District Commission is satisfied that the goods complained against suffer from any of the defects specified in the complaint or that any of the allegations contained in the complaint about the services or any unfair trade practice are proved, it shall issue an order directing the opposite party to remove defect from the goods, replace the goods with new goods of similar description, return to the complainant the price or consideration paid along with interest, and pay such amount as may be awarded by it as compensation to the consumer for any loss or injury suffered by the consumer due to the negligence of the opposite party.",
+      "last_verified": "2026-08-01"
+    },
+    "ecomm2020_rule4_1": {
+      "id": "ecomm2020_rule4_1",
+      "source_type": "rule",
+      "source_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "title": "Rule 4(1) — Duties of E-Commerce Entities",
+      "section_number": "Rule 4(1)",
+      "parent_id": null,
+      "topics": [
+        "ecommerce_entity_duties",
+        "consumer_definition"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-e-commerce-rules-2020",
+      "text": "Every e-commerce entity shall be a company incorporated under the Companies Act, 1956 or the Companies Act, 2013 or a foreign company or an office, branch or agency outside India owned or controlled by a person resident in India; and appoint a nodal person of contact or an alternate senior designated functionary who is resident in India, to ensure compliance with the provisions of the Act or the rules made thereunder.",
+      "last_verified": "2026-08-01"
+    },
+    "ecomm2020_rule4_2": {
+      "id": "ecomm2020_rule4_2",
+      "source_type": "rule",
+      "source_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "title": "Rule 4(2) — Grievance Officer & Complaint Redressal Timelines",
+      "section_number": "Rule 4(2)",
+      "parent_id": null,
+      "topics": [
+        "grievance_officer",
+        "complaint_timeline",
+        "ecommerce_entity_duties"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-e-commerce-rules-2020",
+      "text": "Every e-commerce entity shall establish an adequate grievance redressal mechanism having regard to the number of grievances and designate a grievance officer for consumer grievance redressal on its portal and publish the name, contact details and designation of such officer. The Grievance Officer shall acknowledge the receipt of any consumer complaint within forty-eight hours and redresses the complaint within one month from the date of receipt of the complaint.",
+      "last_verified": "2026-08-01"
+    },
+    "ecomm2020_rule4_4": {
+      "id": "ecomm2020_rule4_4",
+      "source_type": "rule",
+      "source_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "title": "Rule 4(4) — Information & Transparency to Consumers",
+      "section_number": "Rule 4(4)",
+      "parent_id": null,
+      "topics": [
+        "ecommerce_entity_duties",
+        "rights",
+        "refund"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-e-commerce-rules-2020",
+      "text": "Every e-commerce entity shall provide clear and accessible information on its platform regarding refund, exchange, warranty and guarantee, delivery and shipment, modes of payment, and grievance redressal mechanism, in a clear and accessible manner to its users at the appropriate stage of the transaction.",
+      "last_verified": "2026-08-01"
+    },
+    "ecomm2020_rule5_3": {
+      "id": "ecomm2020_rule5_3",
+      "source_type": "rule",
+      "source_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "title": "Rule 5(3) — Marketplace Disclosures on Return, Refund and Delivery",
+      "section_number": "Rule 5(3)",
+      "parent_id": null,
+      "topics": [
+        "return_cancellation_policy",
+        "refund",
+        "ecommerce_entity_duties",
+        "complaint_timeline"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-e-commerce-rules-2020",
+      "text": "Every marketplace e-commerce entity shall provide to its users in a clear and accessible manner on its platform details about return, refund, exchange, warranty and guarantee, delivery and shipment, and any other similar information which may be required by consumers to make informed decisions. Marketplace e-commerce entities must also provide information regarding mechanisms for consumer grievance redressal including ticket numbers for tracking.",
+      "last_verified": "2026-08-01"
+    },
+    "ecomm2020_rule6_2": {
+      "id": "ecomm2020_rule6_2",
+      "source_type": "rule",
+      "source_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "title": "Rule 6(2) — Sellers Duties regarding Return, Defective Goods and Refund",
+      "section_number": "Rule 6(2)",
+      "parent_id": null,
+      "topics": [
+        "refund",
+        "deficiency_in_service",
+        "unfair_trade_practice",
+        "return_cancellation_policy"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-e-commerce-rules-2020",
+      "text": "No seller on a marketplace e-commerce entity shall refuse to take back goods, or withdraw or discontinue services purchased or agreed to be purchased, or refuse to refund consideration paid, if such goods or services are defective, deficient or spurious, or if the characteristics or features of the goods or services are not as represented or if such goods or services are delivered late from the stated delivery schedule: Provided that such refusal may be justified if late delivery is due to force majeure.",
+      "last_verified": "2026-08-01"
+    },
+    "ecomm2020_rule7": {
+      "id": "ecomm2020_rule7",
+      "source_type": "rule",
+      "source_name": "Consumer Protection (E-Commerce) Rules, 2020",
+      "title": "Rule 7 — Duties of Inventory E-Commerce Entities",
+      "section_number": "Rule 7",
+      "parent_id": null,
+      "topics": [
+        "ecommerce_entity_duties",
+        "refund",
+        "return_cancellation_policy",
+        "deficiency_in_service"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumeraffairs.nic.in/acts-and-rules/consumer-protection-e-commerce-rules-2020",
+      "text": "Every inventory e-commerce entity shall not refuse to take back goods, or withdraw or discontinue services, or refuse to refund consideration paid, if such goods or services are defective, deficient, spurious, or if the goods or services delivered are different from what was represented or delivered late beyond the promised delivery schedule. Inventory e-commerce entities must process all legitimate refund requests within a reasonable period as prescribed under applicable laws.",
+      "last_verified": "2026-08-01"
+    },
+    "nch_process_filing": {
+      "id": "nch_process_filing",
+      "source_type": "guideline",
+      "source_name": "National Consumer Helpline (NCH) Portal Guidelines",
+      "title": "NCH Filing Procedure & Grievance Registration",
+      "section_number": "NCH-PROC-1",
+      "parent_id": null,
+      "topics": [
+        "redressal_mechanism",
+        "complaint_timeline",
+        "jurisdiction_filing"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumerhelpline.gov.in/",
+      "text": "Consumers can register their grievances against e-commerce companies with the National Consumer Helpline (NCH) through the Integrated Grievance Redress Mechanism (INGRAM) portal, mobile app, WhatsApp, SMS, or by calling Toll-Free Number 1915 or 1800-11-4000. NCH acts as a pre-litigation alternate dispute resolution mechanism forwarding the grievance directly to registered convergence partner companies for speedy resolution.",
+      "last_verified": "2026-08-01"
+    },
+    "nch_evidence_docs": {
+      "id": "nch_evidence_docs",
+      "source_type": "guideline",
+      "source_name": "National Consumer Helpline (NCH) Portal Guidelines",
+      "title": "NCH Evidence Documentation Checklist for Online Shopping",
+      "section_number": "NCH-DOCS-1",
+      "parent_id": null,
+      "topics": [
+        "evidence_documentation",
+        "refund",
+        "ecommerce_entity_duties"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumerhelpline.gov.in/",
+      "text": "To process an e-commerce grievance effectively, the consumer should furnish the following supporting documents: 1. Tax invoice / purchase receipt showing seller name and price paid; 2. Order confirmation email/SMS with Order ID and date; 3. Proof of payment (UPI transaction ID, bank statement snippet, payment gateway receipt); 4. Screenshots of customer care chat/email tickets and complaint tracking numbers; 5. Unboxing video or clear defect photos in case of wrong, damaged, or counterfeit products; 6. Bank account statement confirming non-receipt of refund amount beyond promised turnaround time (TAT).",
+      "last_verified": "2026-08-01"
+    },
+    "nch_tat_escalation": {
+      "id": "nch_tat_escalation",
+      "source_type": "guideline",
+      "source_name": "National Consumer Helpline (NCH) Portal Guidelines",
+      "title": "NCH Resolution Timelines and Consumer Commission Escalation",
+      "section_number": "NCH-ESC-1",
+      "parent_id": null,
+      "topics": [
+        "complaint_timeline",
+        "redressal_mechanism",
+        "jurisdiction_filing"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumerhelpline.gov.in/",
+      "text": "E-commerce convergence partner companies are expected to respond to grievances registered via NCH within a reasonable timeframe (typically 15 to 30 days). If the grievance remains unresolved, rejected without justification, or if the company fails to respond, the consumer may escalate the dispute by filing a formal consumer complaint before the competent District Consumer Disputes Redressal Commission under Section 35 of the Consumer Protection Act, 2019 via the e-Daakhil electronic filing portal (edaakhil.nic.in).",
+      "last_verified": "2026-08-01"
+    },
+    "nch_faq_refund_delay": {
+      "id": "nch_faq_refund_delay",
+      "source_type": "guideline",
+      "source_name": "National Consumer Helpline (NCH) Portal Guidelines",
+      "title": "NCH FAQ — Delayed and Unprocessed E-Commerce Refunds",
+      "section_number": "NCH-FAQ-REFUND",
+      "parent_id": null,
+      "topics": [
+        "refund",
+        "complaint_timeline",
+        "grievance_officer"
+      ],
+      "jurisdiction": "India",
+      "url": "https://consumerhelpline.gov.in/",
+      "text": "If a refund was initiated by an e-commerce platform but not credited to the consumer's bank account or original payment method within the standard turnaround time (typically 5-7 business days for UPI/cards), the consumer should first obtain the ARN (Acquirer Reference Number) or transaction reference from the platform. If the platform fails to provide ARN or the bank confirms no credit, the consumer is entitled to register a grievance for deficiency in service and unfair trade practice, claiming immediate refund along with compensation for delay.",
+      "last_verified": "2026-08-01"
+    }
+  }
+}

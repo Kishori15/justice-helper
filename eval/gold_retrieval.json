@@ -1,0 +1,17 @@
+{
+  "tc_01": ["cpa2019_sec2_11", "ecomm2020_rule6_2", "ecomm2020_rule4_2", "nch_process_filing", "cpa2019_sec39"],
+  "tc_02": ["cpa2019_sec2_11", "ecomm2020_rule6_2", "ecomm2020_rule4_2", "nch_process_filing"],
+  "tc_03": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec2_11", "nch_evidence_docs", "cpa2019_sec39"],
+  "tc_04": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec2_11", "nch_evidence_docs"],
+  "tc_05": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec39", "ecomm2020_rule5_3"],
+  "tc_06": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec39", "nch_evidence_docs"],
+  "tc_07": ["nch_faq_refund_delay", "ecomm2020_rule4_2", "cpa2019_sec2_11", "nch_evidence_docs"],
+  "tc_08": ["nch_faq_refund_delay", "ecomm2020_rule4_2", "cpa2019_sec2_11"],
+  "tc_09": ["ecomm2020_rule4_2", "nch_faq_refund_delay", "cpa2019_sec2_11", "cpa2019_sec39"],
+  "tc_10": ["ecomm2020_rule4_2", "nch_faq_refund_delay", "cpa2019_sec2_11"],
+  "tc_11": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec2_11"],
+  "tc_12": ["cpa2019_sec2_11", "ecomm2020_rule6_2", "ecomm2020_rule4_2"],
+  "tc_13": ["cpa2019_sec2_11", "ecomm2020_rule6_2"],
+  "tc_14": ["cpa2019_sec2_7"],
+  "tc_15": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec39"]
+}

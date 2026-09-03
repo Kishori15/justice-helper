@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JusticeHelper Case Export - {{ case_id }}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      line-height: 1.5;
+      color: #1a1a1a;
+    }
+    h1 {
+      color: #1e3a8a;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 8px;
+    }
+    h2 {
+      color: #1e40af;
+      margin-top: 24px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-weight: bold;
+    }
+    .card {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .citation-box {
+      background-color: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      padding: 10px 14px;
+      margin: 8px 0;
+    }
+    .draft-box {
+      background-color: #fefce8;
+      border: 1px solid #fef08a;
+      padding: 14px;
+      border-radius: 4px;
+      white-space: pre-wrap;
+      font-family: inherit;
+    }
+    .disclaimer {
+      margin-top: 30px;
+      padding: 12px;
+      background-color: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-radius: 4px;
+      color: #9f1239;
+      font-size: 0.85em;
+    }
+  </style>
+</head>
+<body>
+  <h1>JusticeHelper — Case Summary & Drafts</h1>
+  <p><strong>Case ID:</strong> {{ case_id }} | <strong>Date:</strong> {{ created_at }} | <span class="badge">{{ status }}</span></p>
+
+  <h2>1. Order & Issue Details</h2>
+  <div class="card">
+    <p><strong>Platform:</strong> {{ order_info.platform if order_info else 'N/A' }} | <strong>Product:</strong> {{ order_info.product_name if order_info else 'N/A' }}</p>
+    <p><strong>Price Paid:</strong> ₹{{ order_info.price_paid if order_info else '0.00' }} | <strong>Payment Mode:</strong> {{ order_info.payment_mode if order_info else 'N/A' }}</p>
+    <p><strong>Issue Type:</strong> {{ issue.issue_type if issue else 'N/A' }}</p>
+    <p><strong>Description:</strong> {{ issue.description if issue else 'N/A' }}</p>
+  </div>
+
+  <h2>2. Legal Rights & Statutory Grounds</h2>
+  <div class="card">
+    <p>{{ generation_output.rights_summary if generation_output else 'No rights summary generated yet.' }}</p>
+    {% if generation_output and generation_output.legal_basis %}
+      <h3>Grounded Legal Basis:</h3>
+      {% for item in generation_output.legal_basis %}
+        <div class="citation-box">
+          <strong>Claim:</strong> {{ item.claim }}<br>
+          <small><strong>Citation:</strong> {{ item.citation }} (Ref: {{ item.snippet_id }})</small>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  <h2>3. Draft: Seller / Platform Notice</h2>
+  <div class="draft-box">
+Subject: {{ generation_output.draft_email.subject if generation_output else '' }}
+
+{{ generation_output.draft_email.body if generation_output else '' }}
+  </div>
+
+  <h2>4. Draft: NCH / Consumer Commission Complaint</h2>
+  <div class="draft-box">
+COMPLAINANT:
+{{ generation_output.draft_nch_complaint.complainant_details if generation_output else '' }}
+
+OPPOSITE PARTY:
+{{ generation_output.draft_nch_complaint.opposite_party_details if generation_output else '' }}
+
+FACTS:
+{{ generation_output.draft_nch_complaint.facts if generation_output else '' }}
+
+GROUNDS:
+{{ generation_output.draft_nch_complaint.grounds if generation_output else '' }}
+
+RELIEF SOUGHT:
+{{ generation_output.draft_nch_complaint.relief_sought if generation_output else '' }}
+
+VERIFICATION:
+{{ generation_output.draft_nch_complaint.verification_clause if generation_output else '' }}
+  </div>
+
+  <div class="disclaimer">
+    <strong>DISCLAIMER:</strong> {{ generation_output.disclaimer if generation_output else 'Informational reference draft only. Not formal legal advice.' }}
+  </div>
+</body>
+</html>

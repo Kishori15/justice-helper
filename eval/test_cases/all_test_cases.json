@@ -1,0 +1,229 @@
+{
+  "test_cases": [
+    {
+      "test_id": "tc_01",
+      "raw_input": "I ordered an Apple iPhone 15 for Rs 65000 from Flipkart on 10th August. The app shows delivered on 14th August, but the delivery agent never came and I have not received the package. Customer support says it is delivered and refuses to refund.",
+      "expected_issue_type": "not_delivered",
+      "expected_critical_fields": {
+        "platform": "Flipkart",
+        "product_name": "Apple iPhone 15",
+        "price_paid": 65000,
+        "issue_type": "not_delivered"
+      },
+      "expected_relevant_topics": ["deficiency_in_service", "refund", "complaint_timeline"],
+      "gold_passages": ["cpa2019_sec2_11", "ecomm2020_rule6_2", "ecomm2020_rule4_2", "nch_process_filing", "cpa2019_sec39"],
+      "language": "English",
+      "notes": "Clear non-delivery dispute with platform refusal"
+    },
+    {
+      "test_id": "tc_02",
+      "raw_input": "Flipkart se maine noise smartwatch order kiya tha ₹2,499 ka, 10 din pehle. Tracking me delivered dikha raha hai par mujhe kuch deliver nahi hua.",
+      "expected_issue_type": "not_delivered",
+      "expected_critical_fields": {
+        "platform": "Flipkart",
+        "product_name": "noise smartwatch",
+        "price_paid": 2499,
+        "issue_type": "not_delivered"
+      },
+      "expected_relevant_topics": ["deficiency_in_service", "refund", "complaint_timeline"],
+      "gold_passages": ["cpa2019_sec2_11", "ecomm2020_rule6_2", "ecomm2020_rule4_2", "nch_process_filing"],
+      "language": "Hinglish",
+      "notes": "Hinglish non-delivery with all critical fields"
+    },
+    {
+      "test_id": "tc_03",
+      "raw_input": "Ordered Nike running shoes size 9 for 4200 rupees on Myntra. Opened the parcel and found generic cheap slippers size 6. Raised return request with unboxing photos, but Myntra rejected stating correct item was dispatched.",
+      "expected_issue_type": "wrong_item",
+      "expected_critical_fields": {
+        "platform": "Myntra",
+        "product_name": "Nike running shoes",
+        "price_paid": 4200,
+        "issue_type": "wrong_item"
+      },
+      "expected_relevant_topics": ["deficiency_in_service", "unfair_trade_practice", "refund"],
+      "gold_passages": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec2_11", "nch_evidence_docs", "cpa2019_sec39"],
+      "language": "English",
+      "notes": "Wrong product delivered, seller refusal to accept return"
+    },
+    {
+      "test_id": "tc_04",
+      "raw_input": "Amazon se maine Sony headphones mangwaye the 14999 ke, par dabba kholne pe andar local speaker nikla. Amazon return lene se mana kar raha hai.",
+      "expected_issue_type": "wrong_item",
+      "expected_critical_fields": {
+        "platform": "Amazon",
+        "product_name": "Sony headphones",
+        "price_paid": 14999,
+        "issue_type": "wrong_item"
+      },
+      "expected_relevant_topics": ["deficiency_in_service", "unfair_trade_practice", "refund"],
+      "gold_passages": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec2_11", "nch_evidence_docs"],
+      "language": "Hinglish",
+      "notes": "Hinglish wrong item / counterfeit inside box"
+    },
+    {
+      "test_id": "tc_05",
+      "raw_input": "Bought a Samsung Microwave Oven for ₹11,500 from Tata Neu / Croma online. On plug-in, sparking occurred and turntable is cracked. Technician visited and confirmed manufacturing defect, but platform refuses refund saying only replacement allowed.",
+      "expected_issue_type": "defective",
+      "expected_critical_fields": {
+        "platform": "Tata Neu",
+        "product_name": "Samsung Microwave Oven",
+        "price_paid": 11500,
+        "issue_type": "defective"
+      },
+      "expected_relevant_topics": ["deficiency_in_service", "refund", "return_cancellation_policy"],
+      "gold_passages": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec39", "ecomm2020_rule5_3"],
+      "language": "English",
+      "notes": "Defective appliance, dispute over refund vs replacement"
+    },
+    {
+      "test_id": "tc_06",
+      "raw_input": "Meesho se ek mixer grinder mangwaya tha 1800 rupaye ka. Motor chal hi nahi rahi hai, broken switch hai. Return request cancel kar di seller ne.",
+      "expected_issue_type": "defective",
+      "expected_critical_fields": {
+        "platform": "Meesho",
+        "product_name": "mixer grinder",
+        "price_paid": 1800,
+        "issue_type": "defective"
+      },
+      "expected_relevant_topics": ["deficiency_in_service", "refund", "return_cancellation_policy"],
+      "gold_passages": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec39", "nch_evidence_docs"],
+      "language": "Hinglish",
+      "notes": "Defective goods rejection on Meesho"
+    },
+    {
+      "test_id": "tc_07",
+      "raw_input": "I returned a laptop bag worth 1899 to Amazon. Return pickup completed on 2nd August, and app showed refund of Rs 1899 processed to UPI ID on 3rd August. It has been 20 days and bank statement shows zero credit. Amazon says contact bank, bank says no incoming transaction ARN.",
+      "expected_issue_type": "refund_not_received",
+      "expected_critical_fields": {
+        "platform": "Amazon",
+        "product_name": "laptop bag",
+        "price_paid": 1899,
+        "issue_type": "refund_not_received"
+      },
+      "expected_relevant_topics": ["refund", "grievance_officer", "complaint_timeline"],
+      "gold_passages": ["nch_faq_refund_delay", "ecomm2020_rule4_2", "cpa2019_sec2_11", "nch_evidence_docs"],
+      "language": "English",
+      "notes": "Refund initiated on app but never credited to bank account"
+    },
+    {
+      "test_id": "tc_08",
+      "raw_input": "Flipkart par 3500 ka shoes return kiya tha. App pe refund successful dikha raha hai 10 din se, par mere HDFC account me koi paisa nahi aaya.",
+      "expected_issue_type": "refund_not_received",
+      "expected_critical_fields": {
+        "platform": "Flipkart",
+        "product_name": "shoes",
+        "price_paid": 3500,
+        "issue_type": "refund_not_received"
+      },
+      "expected_relevant_topics": ["refund", "grievance_officer", "complaint_timeline"],
+      "gold_passages": ["nch_faq_refund_delay", "ecomm2020_rule4_2", "cpa2019_sec2_11"],
+      "language": "Hinglish",
+      "notes": "Hinglish refund initiated but not credited"
+    },
+    {
+      "test_id": "tc_09",
+      "raw_input": "Cancelled my flight/hotel booking on MakeMyTrip / Cleartrip and was promised refund of ₹8,400 within 5-7 business days. It is now 35 days past the promised date. Grievance officer has not responded to my email sent 2 weeks ago.",
+      "expected_issue_type": "refund_delayed",
+      "expected_critical_fields": {
+        "platform": "MakeMyTrip",
+        "product_name": "flight/hotel booking",
+        "price_paid": 8400,
+        "issue_type": "refund_delayed"
+      },
+      "expected_relevant_topics": ["refund", "complaint_timeline", "grievance_officer"],
+      "gold_passages": ["ecomm2020_rule4_2", "nch_faq_refund_delay", "cpa2019_sec2_11", "cpa2019_sec39"],
+      "language": "English",
+      "notes": "Severe refund delay beyond statutory grievance timeline"
+    },
+    {
+      "test_id": "tc_10",
+      "raw_input": "Ajio se dress return ki thi ₹2,199 ki. 15 din ho gaye refund pending dikha raha hai, customer care bol rahe hain technical delay hai.",
+      "expected_issue_type": "refund_delayed",
+      "expected_critical_fields": {
+        "platform": "Ajio",
+        "product_name": "dress",
+        "price_paid": 2199,
+        "issue_type": "refund_delayed"
+      },
+      "expected_relevant_topics": ["refund", "complaint_timeline", "grievance_officer"],
+      "gold_passages": ["ecomm2020_rule4_2", "nch_faq_refund_delay", "cpa2019_sec2_11"],
+      "language": "Hinglish",
+      "notes": "Delayed refund turnaround time on Ajio"
+    },
+    {
+      "test_id": "tc_11",
+      "raw_input": "My Zepto grocery order of ₹850 had 3 spoiled milk packets and decayed vegetables. Support bot closed ticket without refund.",
+      "expected_issue_type": "defective",
+      "expected_critical_fields": {
+        "platform": "Zepto",
+        "product_name": "grocery",
+        "price_paid": 850,
+        "issue_type": "defective"
+      },
+      "expected_relevant_topics": ["deficiency_in_service", "refund", "return_cancellation_policy"],
+      "gold_passages": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec2_11"],
+      "language": "English",
+      "notes": "Quick commerce spoiled items refund refusal"
+    },
+    {
+      "test_id": "tc_12",
+      "raw_input": "Blinkit se 1200 ka saman order kiya tha, delivery boy ne order deliver nahi kiya par app me delivered dikha diya.",
+      "expected_issue_type": "not_delivered",
+      "expected_critical_fields": {
+        "platform": "Blinkit",
+        "product_name": "saman",
+        "price_paid": 1200,
+        "issue_type": "not_delivered"
+      },
+      "expected_relevant_topics": ["deficiency_in_service", "refund", "complaint_timeline"],
+      "gold_passages": ["cpa2019_sec2_11", "ecomm2020_rule6_2", "ecomm2020_rule4_2"],
+      "language": "Hinglish",
+      "notes": "Quick commerce false delivery confirmation"
+    },
+    {
+      "test_id": "tc_13",
+      "raw_input": "Order abhi tak nahi aaya Flipkart se tshirt liya tha.",
+      "expected_issue_type": "not_delivered",
+      "expected_critical_fields": {
+        "platform": "Flipkart",
+        "product_name": "tshirt",
+        "price_paid": null,
+        "issue_type": "not_delivered"
+      },
+      "expected_relevant_topics": ["deficiency_in_service", "refund", "complaint_timeline"],
+      "gold_passages": ["cpa2019_sec2_11", "ecomm2020_rule6_2"],
+      "language": "Hinglish",
+      "notes": "Incomplete input - missing price_paid, should trigger follow-up question"
+    },
+    {
+      "test_id": "tc_14",
+      "raw_input": "Maine 5000 rupaye pay kiye the par mujhe pata nahi kya hua.",
+      "expected_issue_type": null,
+      "expected_critical_fields": {
+        "platform": null,
+        "product_name": null,
+        "price_paid": 5000,
+        "issue_type": null
+      },
+      "expected_relevant_topics": ["refund"],
+      "gold_passages": ["cpa2019_sec2_7"],
+      "language": "Hinglish",
+      "notes": "Ambiguous input - missing platform, product, and issue_type"
+    },
+    {
+      "test_id": "tc_15",
+      "raw_input": "Ordered an electronic keyboard for 7999 from Amazon. Box was intact but the keys are completely unresponsive and power socket is loose. Amazon customer executive claims warranty only by manufacturer and refuses return pickup.",
+      "expected_issue_type": "defective",
+      "expected_critical_fields": {
+        "platform": "Amazon",
+        "product_name": "electronic keyboard",
+        "price_paid": 7999,
+        "issue_type": "defective"
+      },
+      "expected_relevant_topics": ["deficiency_in_service", "refund", "return_cancellation_policy"],
+      "gold_passages": ["cpa2019_sec2_47", "ecomm2020_rule6_2", "cpa2019_sec39"],
+      "language": "English",
+      "notes": "Defective item with platform pushing to manufacturer"
+    }
+  ]
+}
