@@ -68,6 +68,7 @@ RefundType = Literal["full", "partial"]
 CommunicationChannel = Literal["chat", "email", "call"]
 CaseStatus = Literal[
     "intake_in_progress",
+    "intake_completed",
     "issue_classified",
     "retrieved",
     "generated",
@@ -198,6 +199,7 @@ class CaseObject(BaseModel):
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     updated_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
     status: CaseStatus = "intake_in_progress"
+    intake_round: int = 0
 
     basic_info: BasicInfo = Field(default_factory=BasicInfo)
     order_info: Optional[OrderInfo] = None

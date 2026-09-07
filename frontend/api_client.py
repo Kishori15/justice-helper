@@ -27,7 +27,7 @@ class APIClient:
     ) -> Dict[str, Any]:
         url = f"{self.base_url}/api/chat"
         payload = {"message": message, "case_id": case_id, "user_name": user_name}
-        res = requests.post(url, json=payload, timeout=30)
+        res = requests.post(url, json=payload, timeout=90)
         res.raise_for_status()
         return res.json()
 

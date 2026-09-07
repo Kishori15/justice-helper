@@ -91,17 +91,25 @@ def process_intake_message(
         if price_paid is None and case.order_info:
             price_paid = case.order_info.price_paid
 
+        del_status = o.get("delivery_status")
+        if not del_status or del_status not in ["delivered", "not_delivered", "partially_delivered", "unknown"]:
+            del_status = case.order_info.delivery_status if case.order_info else "unknown"
+
+        pay_mode = o.get("payment_mode")
+        if not pay_mode or pay_mode not in ["upi", "card", "net_banking", "cod", "other"]:
+            pay_mode = case.order_info.payment_mode if case.order_info else "other"
+
         if platform or product_name or (price_paid is not None):
             case.order_info = OrderInfo(
                 platform=str(platform or ""),
                 order_id=o.get("order_id") or (case.order_info.order_id if case.order_info else None),
                 order_date=o.get("order_date") or (case.order_info.order_date if case.order_info else None),
                 delivery_date=o.get("delivery_date") or (case.order_info.delivery_date if case.order_info else None),
-                delivery_status=o.get("delivery_status") or (case.order_info.delivery_status if case.order_info else "unknown"),
+                delivery_status=del_status,
                 product_name=str(product_name or ""),
                 product_category=o.get("product_category") or (case.order_info.product_category if case.order_info else None),
                 price_paid=float(price_paid) if price_paid is not None else 0.0,
-                payment_mode=o.get("payment_mode") or (case.order_info.payment_mode if case.order_info else "other"),
+                payment_mode=pay_mode,
                 transaction_id=o.get("transaction_id") or (case.order_info.transaction_id if case.order_info else None),
             )
 
@@ -123,12 +131,15 @@ def process_intake_message(
     # Update desired_outcome
     if "desired_outcome" in extracted and isinstance(extracted["desired_outcome"], dict):
         d = extracted["desired_outcome"]
+        ref_type = d.get("refund_type")
+        valid_refund_type = ref_type if ref_type in ["full", "partial"] else "full"
+
         case.desired_outcome = DesiredOutcome(
-            refund_type=d.get("refund_type", "full"),
+            refund_type=valid_refund_type,
             refund_amount=d.get("refund_amount"),
-            compensation_requested=bool(d.get("compensation_requested", False)),
+            compensation_requested=bool(d.get("compensation_requested") or False),
             compensation_amount=d.get("compensation_amount"),
-            apology_requested=bool(d.get("apology_requested", False))
+            apology_requested=bool(d.get("apology_requested") or False)
         )
 
     # Update actions_taken
@@ -146,26 +157,54 @@ def process_intake_message(
             if k in ev:
                 setattr(case.evidence_available, k, bool(ev[k]))
 
-    # Critical fields validation per PROMPTS.md §1
+    # Critical fields validation per PROMPTS.md §1 & ARCHITECTURE.md §2.1
     has_issue = case.issue and case.issue.issue_type
-    has_platform = case.order_info and case.order_info.platform
-    has_product = case.order_info and case.order_info.product_name
+    has_platform = case.order_info and bool(case.order_info.platform.strip())
+    has_product = case.order_info and bool(case.order_info.product_name.strip())
     has_price = case.order_info and case.order_info.price_paid > 0
 
-    if not has_issue:
-        reply = follow_up or "Could you please specify what happened with your order (e.g. item not delivered, wrong item, defective item, or delayed refund)?"
-    elif not has_platform:
-        reply = follow_up or "Which e-commerce platform did you purchase this from (e.g. Amazon, Flipkart, Myntra)?"
-    elif not has_product:
-        reply = follow_up or "What product did you order?"
-    elif not has_price:
-        reply = follow_up or "What was the price/amount paid for the order?"
-    else:
+    all_critical_present = has_issue and has_platform and has_product and has_price
+
+    if all_critical_present:
+        case.status = "issue_classified"
         reply = (
-            f"Thank you. I have recorded your case regarding the {case.order_info.product_name} on {case.order_info.platform} "
+            f"Thank you! I have recorded your case regarding the {case.order_info.product_name} on {case.order_info.platform} "
             f"(Issue: {case.issue.issue_type.replace('_', ' ').title()}). "
             f"We are ready to fetch your legal rights and draft your grievance notices."
         )
+    elif case.intake_round >= 3:
+        # 3-round cap reached with partial data
+        if has_issue:
+            case.status = "issue_classified"
+        else:
+            case.status = "intake_completed"
+        reply = (
+            "Thank you! We've captured your details. You can review and fill in any remaining missing details "
+            "on the Case Summary form before proceeding."
+        )
+    else:
+        # Increment clarification round count and ask conversational follow-up
+        case.intake_round += 1
+        case.status = "intake_in_progress"
+
+        missing_fields = []
+        if not has_issue:
+            missing_fields.append("what issue occurred (e.g. non-delivery, defective item, wrong item, refund delay)")
+        if not has_platform:
+            missing_fields.append("the e-commerce platform name (e.g. Amazon, Flipkart)")
+        if not has_product:
+            missing_fields.append("the product name")
+        if not has_price:
+            missing_fields.append("the price/amount paid")
+
+        if follow_up and follow_up.strip():
+            reply = follow_up
+        else:
+            if len(missing_fields) == 1:
+                reply = f"Could you please share {missing_fields[0]}?"
+            else:
+                fields_str = ", ".join(missing_fields[:-1]) + f" and {missing_fields[-1]}"
+                reply = f"To help build your complaint draft, could you please provide: {fields_str}?"
 
     # Append assistant response to conversation
     case.conversation.append(

@@ -40,7 +40,7 @@ backend/
 │   ├── generate.py             # generate_explanation, generate_drafts
 │   └── export.py               # GET /api/export/pdf, /api/export/docx
 │
-├── intake.py                  # ARCHITECTURE.md §2.1 — extraction module
+├── intake.py                  # ARCHITECTURE.md §2.1 — extraction module (multi-turn, 3-round cap)
 ├── enrichment.py               # ARCHITECTURE.md §2.2 — query enrichment
 ├── corpus.py                  # ARCHITECTURE.md §2.3 — load/build corpus indexes
 ├── retrieval.py                # ARCHITECTURE.md §2.4 — hybrid retrieval (FAISS + BM25 + metadata filter)

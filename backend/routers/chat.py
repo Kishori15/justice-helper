@@ -22,6 +22,9 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     reply: str
     updated_case_summary: CaseObject
+    intake_round: int
+    is_intake_complete: bool
+    follow_up_question: Optional[str] = None
 
 
 @router.post("/chat", response_model=ChatResponse)
@@ -36,7 +39,12 @@ def handle_chat(req: ChatRequest):
     reply, updated_case = process_intake_message(case, req.message)
     save_case(updated_case)
 
+    is_complete = updated_case.status in ["intake_completed", "issue_classified"]
+
     return ChatResponse(
         reply=reply,
-        updated_case_summary=updated_case
+        updated_case_summary=updated_case,
+        intake_round=updated_case.intake_round,
+        is_intake_complete=is_complete,
+        follow_up_question=None if is_complete else reply
     )

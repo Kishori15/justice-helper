@@ -25,16 +25,20 @@ message or prior conversation:
 Rules:
 - Never guess a value you were not given. Leave a field null if it
   was not stated or clearly implied.
-- CRITICAL fields for this project are: issue_type, product_name,
-  price_paid, and platform. If any of these four are null after
-  extraction, do not proceed — instead produce exactly one short,
-  specific follow-up question asking for the missing information.
-  Ask about only one missing field at a time, starting with issue_type
-  if it is the one missing.
+- CRITICAL fields for this project are: issue_type, platform,
+  product_name, and price_paid.
+- MULTI-TURN & CLARIFICATION RULES:
+  1. If ALL four critical fields are populated in extracted_fields, or if
+     the intake round count has reached the maximum cap (3 follow-up turns),
+     set "follow_up_question" to null.
+  2. If any critical fields are missing AND intake round count is less than 3,
+     generate exactly ONE conversational, user-friendly follow-up question
+     that asks for ALL remaining missing critical fields together in a natural,
+     dialogue-like manner.
 - Do not ask about non-critical fields even if missing; leave them null.
 - Do not classify issue_type into anything outside the five allowed
   values. If the issue described doesn't clearly match one of the
-  five, ask the user to clarify rather than picking the closest guess.
+  five, ask the user to clarify as part of the missing fields.
 
 Output ONLY valid JSON matching this schema, nothing else:
 {

@@ -43,8 +43,10 @@ Each numbered stage corresponds to a module below. Data flows strictly forward; 
 **Input:** Raw user text (Hindi/English/Hinglish), conversational follow-ups.
 **Output:** Structured case object (JSON).
 
-- Single LLM call (function-calling / JSON-schema constrained output) maps free text into the case schema: basic info, order info, issue type, actions taken, desired outcome, evidence availability (see `DATA_SCHEMA.md`).
-- If critical fields are missing (e.g., issue type, order date), the module emits a targeted follow-up question rather than guessing.
+- Multi-turn conversational extraction (function-calling / JSON-schema constrained output) maps free text into the case schema across 1 to 4 turns: basic info, order info, issue type, actions taken, desired outcome, evidence availability (see `DATA_SCHEMA.md`).
+- CRITICAL fields are: `issue_type`, `platform`, `product_name`, `price_paid`.
+- If any critical fields are missing after a user message, the module generates a single, natural, conversational follow-up question asking for all remaining missing critical fields together.
+- Clarifying follow-up rounds are capped at a maximum of 3 rounds. If all critical fields are obtained earlier, intake completes immediately. If fields remain missing after 3 rounds, the module sets `follow_up_question` to `null`, updates status to `intake_completed`, and transitions to the Case Summary screen for manual completion.
 - This module owns all conversational state for a session; it does not touch the legal corpus.
 
 ### 2.2 Query Understanding & Enrichment Module
@@ -146,7 +148,7 @@ Each numbered stage corresponds to a module below. Data flows strictly forward; 
 
 | Stage | Reads | Writes | Calls LLM? |
 |---|---|---|---|
-| 2.1 Intake | User text | Structured case JSON | Yes (extraction) |
+| 2.1 Intake | User text | Structured case JSON | Yes (1–4 calls: 1 initial extraction + up to 3 multi-turn follow-ups) |
 | 2.2 Query enrichment | Case JSON | Enriched query JSON | Yes (classification/rewrite) |
 | 2.3 Corpus/index | — (static) | — | No |
 | 2.4 Hybrid retrieval | Enriched query, indexes | Candidate passages | No |
@@ -184,9 +186,9 @@ This is an all-Python, laptop-runnable stack. Only the LLM calls leave the machi
 
 ### 4.1 LLM API Usage & Rate-Limit Strategy
 
-Per complaint case, JusticeHelper makes only **3–5 LLM API calls**, not one per pipeline stage:
+Per complaint case, JusticeHelper makes **3–8 LLM API calls** (depending on clarification turns), not one per pipeline stage:
 
-1. **Intake** — classify issue type and extract structured fields in a single call (`PROMPTS.md` §1).
+1. **Intake** — classify issue type and extract structured fields across 1–4 conversational turns (1 initial extraction + up to 3 clarifying follow-up turns; `PROMPTS.md` §1).
 2. **Rights/legal explanation** — generate the grounded rights summary and legal basis in a single call.
 3. **Drafts** — generate both the email draft and the formal NCH complaint draft together in a single call.
 4–5. **Optional** — extra calls only if the user requests a revision/regeneration of a draft.

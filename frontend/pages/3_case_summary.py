@@ -118,4 +118,15 @@ with col_back:
         st.switch_page("pages/2_chat_intake.py")
 with col_next:
     if st.button("Fetch Legal Rights & Basis →", type="primary", use_container_width=True):
-        st.switch_page("pages/4_rights_and_basis.py")
+        # Validate critical fields
+        current_issue = case.get("issue", {}).get("issue_type")
+        current_platform = case.get("order_info", {}).get("platform")
+        current_product = case.get("order_info", {}).get("product_name")
+
+        if not current_issue or current_issue not in ["not_delivered", "wrong_item", "defective", "refund_not_received", "refund_delayed"]:
+            st.error("⚠️ Issue Type is strictly required before proceeding to Legal Rights retrieval. Please select an issue type above and click 'Save Updates'.")
+        elif not current_platform or not current_product:
+            st.warning("⚠️ Platform and Product Name are recommended to ensure best legal document generation. Click 'Save Updates' after entering them.")
+            st.switch_page("pages/4_rights_and_basis.py")
+        else:
+            st.switch_page("pages/4_rights_and_basis.py")

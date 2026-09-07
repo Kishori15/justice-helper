@@ -34,9 +34,10 @@ stop and ask — do not guess which one is correct.
   decision-making into the *application* itself. (This restriction is
   about the app JusticeHelper builds — it does not limit how you, the
   coding agent, plan and execute your own implementation work.)
-- **LLM call budget: 3–5 calls per case.** Intake, rights/legal
-  explanation, and drafts are each a single call; revisions are optional
-  extra calls (`ARCHITECTURE.md` §4.1). The evidence checklist is a local,
+- **LLM call budget: 3–8 calls per case.** Conversational intake takes
+  1 initial call plus up to 3 optional clarifying calls (1–4 calls total).
+  Rights/legal explanation and drafts are each a single call; revisions are
+  optional extra calls (`ARCHITECTURE.md` §4.1). The evidence checklist is a local,
   non-LLM lookup (`ARCHITECTURE.md` §2.6a, `PROMPTS.md` §4) — never turn it
   back into an LLM call without flagging that it breaks the budget.
 - **Citation grounding is non-negotiable.** Every legal claim the system

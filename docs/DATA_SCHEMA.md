@@ -15,6 +15,7 @@ This is the single source of truth for a user's case, built incrementally by the
   "created_at": "2026-08-25T10:15:00Z",
   "updated_at": "2026-08-25T10:22:00Z",
   "status": "draft_generated",
+  "intake_round": 0,
 
   "basic_info": {
     "name": "string | null",
@@ -78,7 +79,9 @@ This is the single source of truth for a user's case, built incrementally by the
 
 ### Field notes
 
-- `status` tracks pipeline progress: `intake_in_progress → issue_classified → retrieved → generated → verified → exported`.
+- `status` tracks pipeline progress: `intake_in_progress → intake_completed → issue_classified → retrieved → generated → verified → exported`.
+- `intake_round` tracks the number of clarifying follow-up turns asked so far (0 to 3).
+- `issue_type` is strictly required before moving from `intake_completed` to `issue_classified`/`retrieved`.
 - `retrieved_passage_ids` stores the exact `id` values (from `CORPUS.md` schema) used for this case — this is what makes the "show which sections were used" transparency requirement in the PRD auditable.
 - Any field left `null`/`unknown` after intake should have triggered a follow-up question (`ARCHITECTURE.md` §2.1); only genuinely optional fields (e.g., `compensation_amount` when not requested) should stay null in a completed case.
 - `evidence_available` is user self-reported at intake; it is not verified against actual uploaded files unless file upload is implemented.
@@ -237,7 +240,7 @@ These map directly onto the FastAPI endpoints in `ARCHITECTURE.md` and use the o
 
 | Endpoint | Request | Response |
 |---|---|---|
-| `POST /api/chat` | `{ case_id, message }` | `{ reply, updated_case_summary: CaseObject }` |
+| `POST /api/chat` | `{ case_id, message }` | `{ reply, updated_case_summary: CaseObject, intake_round: int, is_intake_complete: bool, follow_up_question: string | null }` |
 | `POST /api/classify_issue` | `{ case_id, user_text }` | `{ issue_type, extracted_fields }` (partial Case Object) |
 | `POST /api/retrieve` | `{ case_id, issue_type, query }` | `RetrievalResult` (§3) |
 | `POST /api/generate_explanation` | `{ case_id }` | `{ rights_summary, legal_basis }` (subset of §5) |
