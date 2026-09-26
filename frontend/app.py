@@ -2,6 +2,14 @@
 Streamlit Application Entrypoint for JusticeHelper.
 Implements ARCHITECTURE.md §4 and PROJECT_STRUCTURE.md §3.
 """
+import sys
+from pathlib import Path
+
+# Ensure project root is in sys.path when Streamlit runs script from frontend/ directory
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 import streamlit as st
 from frontend.api_client import api_client
 from frontend.config import APP_DISCLAIMER, APP_SUBTITLE, APP_TITLE
